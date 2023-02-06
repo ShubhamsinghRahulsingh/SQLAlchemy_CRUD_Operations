@@ -2,7 +2,7 @@ from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
 from . import crud, model, schemas
-from .database import SessionLocal, engine
+from .database import SessionLocal
 
 description = """
             performing CRUD operations in Database
@@ -11,8 +11,6 @@ description = """
             Update: Update data in database
             Delete: Delete data from the database
             """
-
-model.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="CRUD_Operations", description=description)
 
